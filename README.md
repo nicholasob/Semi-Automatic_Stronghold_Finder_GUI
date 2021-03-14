@@ -1,1 +1,1 @@
-# SemiAutomatic-Stronghold_Finder
+# Semi-Automatic Stronghold Finder
