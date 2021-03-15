@@ -498,7 +498,7 @@ namespace Stronghold_Finder
             }
 
             //The X and Y Coordinate
-            double[] coords = { 0, 0 };
+            double[] coords = { 0, 0, 0};
             double Angle = 0;
 
             //These are the cropped iamges from tha game window, "CoordsCroppedImage" is the coordinates and "AngleCroppedImage" is the angle.
@@ -516,6 +516,8 @@ namespace Stronghold_Finder
                 if (!string.IsNullOrEmpty(CoordsText))
                 {
                     coords = parseCoordinates(CoordsText);
+                    //Sets the label to show the players current position and angle (when pressing the hotkey).
+                    label12.Text = "X: " + coords[0].ToString() + ", Y: " + coords[1].ToString() + ", Z: " + coords[2].ToString();
                 }
                 else
                 {
@@ -541,6 +543,9 @@ namespace Stronghold_Finder
                 if (!string.IsNullOrEmpty(AngleText))
                 {
                     Angle = parseAngle(AngleText);
+                    //Sets the label to show the players current position and angle (when pressing the hotkey).
+                    label13.Text = Angle.ToString();
+
                 }
                 else
                 {
@@ -552,9 +557,6 @@ namespace Stronghold_Finder
                 }
             }
    
-            //Sets the label to show the players current position and angle (when pressing the hotkey).
-            label12.Text = "X: " + coords[0].ToString() + ", Y: " + coords[1].ToString() + ", Z: " + coords[2].ToString();
-            label13.Text = Angle.ToString();
 
             //Appending the players position and angle to the list of double arrays.
             arrayOfUsages.Add(new double[] { coords[0], coords[2], Angle });
