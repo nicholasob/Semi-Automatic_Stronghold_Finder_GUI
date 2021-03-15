@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<values>
+  <mode>
+    <CORDS>0</CORDS>
+    <ANGLE>0</ANGLE>
+  </mode>
+  <coordinate>
+    <X>0</X>
+    <Y>260</Y>
+    <WIDTH>750</WIDTH>
+    <HEIGHT>40</HEIGHT>
+  </coordinate>
+  <coordinate_percentage>
+    <X>0</X>
+    <Y>0,256</Y>
+    <WIDTH>0,390</WIDTH>
+    <HEIGHT>0,039</HEIGHT>
+  </coordinate_percentage>
+  <angle>
+    <X>500</X>
+    <Y>350</Y>
+    <WIDTH>350</WIDTH>
+    <HEIGHT>35</HEIGHT>
+  </angle>
+  <angle_percentage>
+    <X>0,260</X>
+    <Y>0,344</Y>
+    <WIDTH>0,182</WIDTH>
+    <HEIGHT>0,034</HEIGHT>
+  </angle_percentage>
+  <button>
+    <savedkey>105</savedkey>
+  </button>
+  <game>
+    <TITLE>Minecraft 1.16.5 - Singleplayer</TITLE>
+  </game>
+</values>
