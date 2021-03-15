@@ -2,7 +2,7 @@
 
 ![Preview_Software](https://user-images.githubusercontent.com/52530661/111217603-077c1500-85d6-11eb-8b38-c612af174a4c.jpg)
 
-The software provides multiple different functionalities that help the user in finding the stronghold in the videogame Minecraft. 
+The software provides multiple different functionalities that help the user find the stronghold in the videogame Minecraft. By pressing the hotkey, the software automatically screenshots the game window and reads both the coordinates and angle by using Selenium and custom-made training data (specific for Minecraft font).
 The tool allows the user to:
 * Choose what game window to use. Remember that the name is different/changes depending on what game mode you are using and if there is a new update out.
 * Bind custom hotkeys that will be used to get the user's current position and view angle.
