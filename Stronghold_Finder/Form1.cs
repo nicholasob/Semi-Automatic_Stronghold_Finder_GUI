@@ -497,6 +497,15 @@ namespace Stronghold_Finder
                 return;
             }
 
+            //If the player wants to modify the values, then do the following
+            if (modifyChecked == true)
+            {
+                savedImageForSetup = MCImage.getBlackWhiteImage((Bitmap)minecraft_window);
+                Status.Text = "Press 'Preview Image' and adjust.";
+                minecraft_window.Dispose();
+                return;
+            }
+
             //The X and Y Coordinate
             double[] coords = { 0, 0, 0};
             double Angle = 0;
@@ -602,15 +611,6 @@ namespace Stronghold_Finder
                 int x = (int)arrayOfUsages[arrayOfUsages.Count - 1][0], z = (int)arrayOfUsages[arrayOfUsages.Count - 1][1];
                 getClosestCircleFromPosition(x, z);
 
-                //If the player wants to modify the values, then do the following
-                if (modifyChecked == true)
-                {
-                    savedImageForSetup = MCImage.getBlackWhiteImage((Bitmap)minecraft_window);
-                    //This makes sure that the timer dosen't start in case the user accidantly enabled it. (this would put minecraft in the foreground at each interval).
-                    Status.Text = "Press 'Preview Image' and adjust.";
-                    minecraft_window.Dispose();
-                    return;
-                }
 
                 //If the player has enabled for realtime position update, then do the following.
                 if (Position_Update.CheckState == CheckState.Checked)
