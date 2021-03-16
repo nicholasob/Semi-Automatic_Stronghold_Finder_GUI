@@ -443,17 +443,17 @@ namespace Stronghold_Finder
             {
                 if (anglePercentageOrPixels == true)
                 {
-                    doc.SelectSingleNode("values/angle/X").InnerText = X_angle.Value.ToString();
-                    doc.SelectSingleNode("values/angle/Y").InnerText = Y_angle.Value.ToString();
-                    doc.SelectSingleNode("values/angle/WIDTH").InnerText = WIDTH_angle.Value.ToString();
-                    doc.SelectSingleNode("values/angle/HEIGHT").InnerText = HEIGHT_angle.Value.ToString();
-                }
-                else
-                {
                     doc.SelectSingleNode("values/angle_percentage/X").InnerText = X_angle.Value.ToString();
                     doc.SelectSingleNode("values/angle_percentage/Y").InnerText = Y_angle.Value.ToString();
                     doc.SelectSingleNode("values/angle_percentage/WIDTH").InnerText = WIDTH_angle.Value.ToString();
                     doc.SelectSingleNode("values/angle_percentage/HEIGHT").InnerText = HEIGHT_angle.Value.ToString();
+                }
+                else
+                {
+                    doc.SelectSingleNode("values/angle/X").InnerText = X_angle.Value.ToString();
+                    doc.SelectSingleNode("values/angle/Y").InnerText = Y_angle.Value.ToString();
+                    doc.SelectSingleNode("values/angle/WIDTH").InnerText = WIDTH_angle.Value.ToString();
+                    doc.SelectSingleNode("values/angle/HEIGHT").InnerText = HEIGHT_angle.Value.ToString();
                 }
             }
             doc.Save(XMLPath);

@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <values>
   <mode>
-    <CORDS>1</CORDS>
+    <CORDS>0</CORDS>
     <ANGLE>0</ANGLE>
   </mode>
   <coordinate>
@@ -12,9 +12,9 @@
   </coordinate>
   <coordinate_percentage>
     <X>0</X>
-    <Y>0.256</Y>
-    <WIDTH>0.390</WIDTH>
-    <HEIGHT>0.039</HEIGHT>
+    <Y>0,256</Y>
+    <WIDTH>0,390</WIDTH>
+    <HEIGHT>0,039</HEIGHT>
   </coordinate_percentage>
   <angle>
     <X>500</X>
@@ -23,15 +23,15 @@
     <HEIGHT>35</HEIGHT>
   </angle>
   <angle_percentage>
-    <X>0.260</X>
-    <Y>0.344</Y>
-    <WIDTH>0.182</WIDTH>
-    <HEIGHT>0.034</HEIGHT>
+    <X>0,260</X>
+    <Y>0,344</Y>
+    <WIDTH>0,182</WIDTH>
+    <HEIGHT>0,034</HEIGHT>
   </angle_percentage>
   <button>
     <savedkey>105</savedkey>
   </button>
   <game>
-    <TITLE>dwad</TITLE>
+    <TITLE>Minecraft 1.16.5 - Singleplayer</TITLE>
   </game>
 </values>
