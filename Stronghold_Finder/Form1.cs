@@ -530,11 +530,10 @@ namespace Stronghold_Finder
                 }
                 else
                 {
-                    if(modifyChecked == false)
-                    {
-                        Status.Text = "Check if Debug (f3) is open!";
-                        return;
-                    }
+
+                    Status.Text = "Check if Debug (f3) is open!";
+                    return;
+                    
                 }
             }
 
@@ -558,11 +557,10 @@ namespace Stronghold_Finder
                 }
                 else
                 {
-                    if (modifyChecked == false)
-                    {
-                        Status.Text = "Check if Debug (f3) is open!";
-                        return;
-                    }
+
+                    Status.Text = "Check if Debug (f3) is open!";
+                    return;
+
                 }
             }
    
