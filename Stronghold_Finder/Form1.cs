@@ -1027,7 +1027,7 @@ namespace Stronghold_Finder
                 //update_Axis_Width_Height(ref chart1);
                 //short startX = 88, endX = 580;
                 //short startY = 26, endY = 460;
-                float startX = 92, endX = 583;
+                float startX = 55, endX = 546;
                 float startY = 8, endY = 472;
                 //if (paintIndex != 0) endY -= (3 * (currentMaximum/1000));
 

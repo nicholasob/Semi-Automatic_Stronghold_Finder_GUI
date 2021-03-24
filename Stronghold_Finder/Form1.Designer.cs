@@ -116,11 +116,7 @@
             chartArea1.Position.Auto = false;
             chartArea1.Position.Height = 100F;
             chartArea1.Position.Width = 75F;
-            chartArea1.Position.X = 5F;
             this.chart1.ChartAreas.Add(chartArea1);
-            legend1.IsEquallySpacedItems = true;
-            legend1.IsTextAutoFit = false;
-            legend1.MaximumAutoSize = 10F;
             legend1.Name = "Legend1";
             this.chart1.Legends.Add(legend1);
             this.chart1.Location = new System.Drawing.Point(6, 19);
