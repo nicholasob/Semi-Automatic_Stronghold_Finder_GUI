@@ -34,6 +34,7 @@ F:\SemiAutomatic-Stronghold_Finder\Stronghold_Finder\bin\Debug\Python.Runtime.dl
 F:\SemiAutomatic-Stronghold_Finder\Stronghold_Finder\bin\Debug\System.Drawing.Common.dll
 F:\SemiAutomatic-Stronghold_Finder\Stronghold_Finder\bin\Debug\Tesseract.dll
 F:\SemiAutomatic-Stronghold_Finder\Stronghold_Finder\bin\Debug\Python.Runtime.xml
+F:\SemiAutomatic-Stronghold_Finder\Stronghold_Finder\obj\Debug\Stronghold_Finder.csprojAssemblyReference.cache
 F:\SemiAutomatic-Stronghold_Finder\Stronghold_Finder\obj\Debug\Stronghold_Finder.Form1.resources
 F:\SemiAutomatic-Stronghold_Finder\Stronghold_Finder\obj\Debug\Stronghold_Finder.Properties.Resources.resources
 F:\SemiAutomatic-Stronghold_Finder\Stronghold_Finder\obj\Debug\Stronghold_Finder.showImage.resources

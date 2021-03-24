@@ -102,10 +102,10 @@ namespace Stronghold_Finder
             chart1.ChartAreas[0].AxisX.IsLabelAutoFit = false;
             chart1.ChartAreas[0].AxisY.IsLabelAutoFit = false;
 
-            chart1.ChartAreas[0].Position.Y = 10;
-            chart1.ChartAreas[0].Position.Height = 85;
-            chart1.ChartAreas[0].Position.X = 5;
-            chart1.ChartAreas[0].Position.Width = 75;
+            //chart1.ChartAreas[0].Position.Y = 10;
+            //chart1.ChartAreas[0].Position.Height = 85;
+            //chart1.ChartAreas[0].Position.X = 5;
+            //chart1.ChartAreas[0].Position.Width = 75;
 
             chart1.ChartAreas[0].Position.Auto = false;
             chart1.ChartAreas[0].IsSameFontSizeForAllAxes = true;
@@ -354,6 +354,13 @@ namespace Stronghold_Finder
 
             c.ChartAreas[0].AxisX.Minimum = currentMinimum;
             c.ChartAreas[0].AxisY.Minimum = currentMinimum;
+
+            c.ChartAreas[0].AxisX.Interval = (currentMaximum / 3);
+            c.ChartAreas[0].AxisY.Interval = (currentMaximum / 3);
+
+            c.ChartAreas[0].AxisX.ScaleView.Position = currentMaximum;
+            c.ChartAreas[0].AxisY.ScaleView.Position = currentMaximum;
+
         }
 
         /// <summary>
@@ -496,7 +503,6 @@ namespace Stronghold_Finder
                 Status.Text = "Check your game window!";
                 return;
             }
-
             //If the player wants to modify the values, then do the following
             if (modifyChecked == true)
             {
@@ -507,7 +513,7 @@ namespace Stronghold_Finder
             }
 
             //The X and Y Coordinate
-            double[] coords = { 0, 0, 0};
+            double[] coords = { 0, 0 };
             double Angle = 0;
 
             //These are the cropped iamges from tha game window, "CoordsCroppedImage" is the coordinates and "AngleCroppedImage" is the angle.
@@ -525,15 +531,11 @@ namespace Stronghold_Finder
                 if (!string.IsNullOrEmpty(CoordsText))
                 {
                     coords = parseCoordinates(CoordsText);
-                    //Sets the label to show the players current position and angle (when pressing the hotkey).
-                    label12.Text = "X: " + coords[0].ToString() + ", Y: " + coords[1].ToString() + ", Z: " + coords[2].ToString();
                 }
                 else
                 {
-
                     Status.Text = "Check if Debug (f3) is open!";
                     return;
-                    
                 }
             }
 
@@ -551,19 +553,18 @@ namespace Stronghold_Finder
                 if (!string.IsNullOrEmpty(AngleText))
                 {
                     Angle = parseAngle(AngleText);
-                    //Sets the label to show the players current position and angle (when pressing the hotkey).
-                    label13.Text = Angle.ToString();
-
                 }
                 else
                 {
-
                     Status.Text = "Check if Debug (f3) is open!";
                     return;
 
                 }
             }
    
+            //Sets the label to show the players current position and angle (when pressing the hotkey).
+            label12.Text = "X: " + coords[0].ToString() + ", Y: " + coords[1].ToString() + ", Z: " + coords[2].ToString();
+            label13.Text = Angle.ToString();
 
             //Appending the players position and angle to the list of double arrays.
             arrayOfUsages.Add(new double[] { coords[0], coords[2], Angle });
@@ -608,7 +609,6 @@ namespace Stronghold_Finder
 
                 int x = (int)arrayOfUsages[arrayOfUsages.Count - 1][0], z = (int)arrayOfUsages[arrayOfUsages.Count - 1][1];
                 getClosestCircleFromPosition(x, z);
-
 
                 //If the player has enabled for realtime position update, then do the following.
                 if (Position_Update.CheckState == CheckState.Checked)
@@ -1020,14 +1020,15 @@ namespace Stronghold_Finder
         //The "function" that draws all the rings on the chart.
         private void chart1_Paint(object sender, PaintEventArgs e)
         {
+            
             using (Pen coolPen = new Pen(Color.FromArgb(25, 255, 0, 0), 1))
             {
                 if (chartAreaHeight == 0 || chartAreaWidth == 0) return;
                 //update_Axis_Width_Height(ref chart1);
                 //short startX = 88, endX = 580;
                 //short startY = 26, endY = 460;
-                float startX = 95, endX = 601;
-                float startY = 59, endY = 457;
+                float startX = 92, endX = 583;
+                float startY = 8, endY = 472;
                 //if (paintIndex != 0) endY -= (3 * (currentMaximum/1000));
 
                 float currentWidth = chart1.ChartAreas[0].Position.Width;
@@ -1035,6 +1036,7 @@ namespace Stronghold_Finder
 
                 if (currentMaximum >= 10000)
                 {
+                    startX += 8;
                     endX -= 4;
                 }
 
@@ -1045,36 +1047,40 @@ namespace Stronghold_Finder
                 //currentMinimum = currentMaximum * -1;
                 //create_hori_verti_line(chart1);
                 //Console.WriteLine("Width: " + chart1.ChartAreas[0].AxisY.Maximum);
-                //e.Graphics.DrawRectangle(blackPen, new Rectangle((int)endX - 50, (int)startY, 80, 250));
+                
                 //e.Graphics.DrawRectangle(new Pen(Color.Black), new Rectangle((int)startX, (int)endY, 80, 25));
                 //e.Graphics.DrawRectangle(new Pen(Color.Black), new Rectangle(250, 23, 80, 50));
                 //e.Graphics.DrawRectangle(new Pen(Color.Black), new Rectangle(88, 468, 80, 25));
 
                 for (short index = paintIndex; index >= 0; --index)
                 {
-                    float outerCircleX = (((float)strongHold_radius[index][1] / (float)currentMaximum));
-                    float outerCircleXStart = (((endX - startX) / 2) - (((endX - startX) / 2) * outerCircleX)) + startX;
-                    float outerCircleXWidth = (endX - startX) - ((outerCircleXStart - startX) * 2);
 
-                    float outerCircleY = (((float)strongHold_radius[index][1] / (float)currentMaximum));
-                    float outerCircleYStart = (((endY - startY) / 2) - (((endY - startY) / 2) * outerCircleY)) + startY;
-                    float outerCircleYHeight = (endY - startY) - ((outerCircleYStart - startY) * 2);
+                    float difference = ((float)strongHold_radius[index][0] / (float)currentMaximum);
 
-                    float innerCircleX = (((float)strongHold_radius[index][0] / (float)currentMaximum));
-                    float innerCircleXStart = (((endX - startX) / 2) - (((endX - startX) / 2) * innerCircleX)) + startX;
-                    float innerCircleXWidth = (endX - startX) - ((innerCircleXStart - startX) * 2);
+                    float XTotalWidth = (endX - startX);
+                    float Xmitten = startX + (XTotalWidth / 2);
+                    float Xpunkt = Xmitten - ((XTotalWidth / 2) * difference);
+                    float Xwidth = (Xmitten - Xpunkt) * 2;
 
-                    float innerCircleY = (((float)strongHold_radius[index][0] / (float)currentMaximum));
-                    float innerCircleYStart = (((endY - startY) / 2) - (((endY - startY) / 2) * innerCircleY)) + startY;
-                    float innerCircleYHeight = (endY - startY) - ((innerCircleYStart - startY) * 2);
+                    float YTotalHeight = (endY - startY);
+                    float Ymitten = startY + (YTotalHeight / 2);
+                    float Ypunkt = Ymitten - ((YTotalHeight / 2) * difference);
+                    float Yheight = (Ymitten - Ypunkt) * 2;
+
+                    float differenceMax = ((float)strongHold_radius[index][1] / (float)currentMaximum);
+                    float XMaxpunkt = Xmitten - ((XTotalWidth / 2) * differenceMax);
+                    float YMaxpunkt = Ymitten - ((YTotalHeight / 2) * differenceMax);
+
+                    //e.Graphics.DrawRectangle(new Pen(Color.Red), new Rectangle((int)startX, (int)startY, (int)XTotalWidth, (int)YTotalHeight));
+                    //e.Graphics.DrawRectangle(new Pen(Color.Black), new Rectangle((int)Xpunkt, (int)Ypunkt, (int)Xwidth, (int)Yheight));
 
                     for (short i = 0; ; ++i)
                     {
-                        if ((outerCircleXStart + i) >= innerCircleXStart)
+                        if ((Xpunkt - i) <= XMaxpunkt || (Ypunkt - i) <= YMaxpunkt) 
                         {
                             break;
                         }
-                        e.Graphics.DrawEllipse(coolPen, outerCircleXStart + i, outerCircleYStart + i, outerCircleXWidth - (2 * i), outerCircleYHeight - (2 * i));
+                        e.Graphics.DrawEllipse(coolPen, Xpunkt - i, Ypunkt - i, Xwidth + (2 * i), Yheight + (2 * i));
                     }
                     //e.ChartGraphics.Graphics.FillEllipse(redBrush, outerCircleXStart, outerCircleYStart, outerCircleXWidth, outerCircleYHeight);
                     //e.ChartGraphics.Graphics.FillEllipse(transparentBrush, innerCircleXStart, innerCircleYStart, innerCircleXWidth, innerCircleYHeight);
